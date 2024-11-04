@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.stream.*;
+
+class Main {
+    public static void main(String[] args) {
+        // Создаём список строк
+        List<String> strings = new ArrayList<>();
+        strings.add("Alfa Romeo");
+        strings.add("Aston Martin");
+        strings.add("Brilliance");
+        strings.add("Bugatti");
+        strings.add("Ferrari");
+        strings.add("Land Rover");
+        strings.add("Subaru");
+        strings.add("Brilliance");
+        strings.add("Porsche");
+        strings.add("Ferrari");
+
+        // Подсчитываем количество строк, начинающихся на 'O'
+        long countOfStringsStartingWithO = strings.stream()
+                .filter(s -> s.startsWith("A"))
+                .count();
+
+        System.out.println("Количество строк, начинающихся на 'A': " + countOfStringsStartingWithO);
+    }
+}
