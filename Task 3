@@ -3,19 +3,21 @@ import java.util.stream.*;
 
 class Main {
     public static void main(String[] args) {
-        // Создаём список целых чисел
+// Создаём список целых чисел
         List<Integer> numbers = new ArrayList<>();
         numbers.add(5);
         numbers.add(2);
         numbers.add(8);
         numbers.add(3);
         numbers.add(1);
+        numbers.add(8); // Добавим дубликат для теста
 
-        // Находим второй по величине элемент
+// Находим второй по величине элемент
         Optional<Integer> secondLargest = numbers.stream()
-                .sorted()
-                .skip(1)
-                .findFirst();
+                .distinct() // Убираем дубликаты
+                .sorted(Comparator.reverseOrder()) // Сортируем по убыванию
+                .skip(1) // Пропускаем первый (максимальный)
+                .findFirst(); // Находим следующий элемент
 
         if (secondLargest.isPresent()) {
             System.out.println("Второй по величине элемент: " + secondLargest.get());
